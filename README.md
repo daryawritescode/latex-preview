@@ -19,6 +19,7 @@
 ## 🚀 Getting Started
 
 ### Local Development
+
 ```bash
 # Clone the repo
 git clone https://github.com/daryawritescode/latex-preview.git

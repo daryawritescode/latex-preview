@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     // Modern build settings
     target: 'esnext',
-    minify: 'terser', // Rolldown uses terser/minify if available
+    minify: 'esbuild',
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
   }
