@@ -1,33 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
   base: '/latex-preview/',
   plugins: [
-    react(),
-    VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
-      manifest: {
-        name: 'LaTeX Preview',
-        short_name: 'latex-preview',
-        description: 'Minimalist tool to preview Markdown and LaTex',
-        theme_color: '#121212',
-        icons: [
-          {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
-        ]
-      }
-    })
+    react()
   ],
+  build: {
+    // Modern build settings
+    target: 'esnext',
+    minify: 'terser', // Rolldown uses terser/minify if available
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 1000,
+  }
 })
