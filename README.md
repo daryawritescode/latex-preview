@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# LaTeX Preview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist, high-fidelity real-time previewer for Markdown and $\\LaTeX$. Built for speed, precision, and a "modern-as-fuck" aesthetic.
 
-Currently, two official plugins are available:
+![LaTeX Preview](https://github.com/daryawritescode/latex-preview/blob/main/src/assets/hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Core Features
+- **Zero Latency Rendering**: Powered by [KaTeX](https://katex.org/) and `react-markdown`.
+- **Modern UI**: Dark-mode first design with glassmorphic interfaces and buttery smooth animations via `framer-motion`.
+- **Zen Mode**: Focus on your equations with a single-click fullscreen environment.
+- **Local Persistence**: Automatically caches your work to `localStorage` so you never lose a derivation.
+- **Copy & Export**: Quick-action buttons to copy raw code or clear the workspace.
 
-## React Compiler
+## Tech Stack
+- **Framework**: [React 19](https://react.dev/)
+- **Build Engine**: [Vite 8](https://vitejs.dev/) (Next-gen bundling)
+- **Styling**: Vanilla Modern CSS (Glassmorphism / Neon design system)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **CI/CD**: GitHub Actions with automated deployment to GitHub Pages.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### Local Development
+```bash
+# Clone the repo
+git clone https://github.com/daryawritescode/latex-preview.git
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Install dependencies
+npm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Building for Production
+```bash
+# Build & Lint
+npm run build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview build
+npm run preview
 ```
+
+## Infrastructure & CI/CD
+The project uses GitHub Actions for automated quality control:
+- **Linting**: Strict ESLint flat-config enforcement.
+- **Type Checking**: TypeScript 5.9 strict mode.
+- **Automated Deployment**: Every push to `main` is automatically built and deployed to [GitHub Pages](https://daryawritescode.github.io/latex-preview/).
+
+## License
+MIT License. Feel free to fork and build your own genius.

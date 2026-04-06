@@ -21,7 +21,8 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-const DEFAULT_CONTENT = `# Modern LaTeX Preview
+/** Constant for the initial editor content */
+const DEFAULT_CONTENT = `# LaTeX Preview
 Experience real-time $\\LaTeX$ rendering with zero latency.
 
 ## Math Examples
@@ -37,6 +38,10 @@ $$i\\hbar\\frac{\\partial}{\\partial t}\\Psi(r,t) = \\hat{H}\\Psi(r,t)$$
 - **Precision**: KaTeX powered mathematical rendering.
 `
 
+/**
+ * Main Application Component
+ * Handles state for content, UI toggles, and local storage persistence.
+ */
 function App() {
   const [content, setContent] = useState(() => {
     return localStorage.getItem('latex-content') ?? DEFAULT_CONTENT
@@ -45,23 +50,38 @@ function App() {
   const [fullscreen, setFullscreen] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
+  /** Saves content to localStorage whenever it changes */
   useEffect(() => {
     localStorage.setItem('latex-content', content)
   }, [content])
 
+  /** Clears the application state after user confirmation */
   const handleClear = () => {
     if (window.confirm("Nuclear option? This will wipe the editor.")) {
       setContent('')
     }
   }
 
+  /** Copies the current editor raw content to the system clipboard */
   const handleCopy = () => {
     navigator.clipboard.writeText(content)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
+  /** Toggles the 'Zen Mode' (fullscreen) state */
   const toggleFullscreen = () => setFullscreen(!fullscreen)
+
+  /** Listen for Escape key to exit Zen Mode */
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && fullscreen) {
+        setFullscreen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [fullscreen])
 
   return (
     <div className={cn("app-container", fullscreen && "fullscreen-mode")}>
@@ -73,7 +93,7 @@ function App() {
       >
         <div className="brand">
           <SquareFunction className="brand-icon" size={26} strokeWidth={2.5} />
-          <span className="brand-text">ZAVTRA PREVIEW</span>
+          <span className="brand-text">LaTeX PREVIEW</span>
         </div>
         
         <div className="actions">
@@ -127,6 +147,21 @@ function App() {
         </section>
 
         <section className="pane preview-pane">
+          <AnimatePresence>
+            {fullscreen && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                onClick={toggleFullscreen}
+                className="floating-exit-btn"
+                title="Exit Zen Mode (Esc)"
+              >
+                <Minimize2 size={18} />
+                <span>Exit Zen</span>
+              </motion.button>
+            )}
+          </AnimatePresence>
           <div className="pane-label">
             <Type size={14} className="inline mr-2" /> RENDERED
           </div>
@@ -135,8 +170,8 @@ function App() {
               remarkPlugins={[remarkMath]}
               rehypePlugins={[rehypeKatex]}
               components={{
-                h1: ({node, ...props}) => <motion.h1 initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} {...(props as any)} />,
-                p: ({node, ...props}) => <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} {...(props as any)} />
+                h1: ({node: _1, ...props}) => <motion.h1 initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} {...(props as any)} />,
+                p: ({node: _2, ...props}) => <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} {...(props as any)} />
               }}
             >
               {content || '# Blank Canvas\nType some code to start rendering.'}
