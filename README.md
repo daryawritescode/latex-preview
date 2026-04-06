@@ -1,24 +1,22 @@
 # LaTeX Preview
 
-A minimalist, high-fidelity real-time previewer for Markdown and $\\LaTeX$. Built for speed, precision, and a "modern-as-fuck" aesthetic.
+[![MIT License](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/daryawritescode/latex-preview/deploy.yml?branch=main&label=CI/CD&logo=github)](https://github.com/daryawritescode/latex-preview/actions)
+[![React 19](https://img.shields.io/badge/React-19-blue.svg?logo=react)](https://react.dev/)
+[![Vite 8](https://img.shields.io/badge/Vite-8-ffcc00.svg?logo=vite)](https://vitejs.dev/)
 
-![LaTeX Preview](https://github.com/daryawritescode/latex-preview/blob/main/src/assets/hero.png)
+**A minimalist, high-fidelity real-time previewer for Markdown and $\\LaTeX$.** Built for researchers, engineers, and mathematicians who value zero-latency feedback and a high-end "modern-as-fuck" aesthetic.
 
-## Core Features
+![LaTeX Preview Header](https://raw.githubusercontent.com/daryawritescode/latex-preview/main/src/assets/hero.png)
+
+## ✨ Core Features
 - **Zero Latency Rendering**: Powered by [KaTeX](https://katex.org/) and `react-markdown`.
 - **Modern UI**: Dark-mode first design with glassmorphic interfaces and buttery smooth animations via `framer-motion`.
-- **Zen Mode**: Focus on your equations with a single-click fullscreen environment.
+- **Zen Mode**: Focus on your equations with a single-click fullscreen environment. Pro-tip: Press \`Esc\` to exit.
 - **Local Persistence**: Automatically caches your work to `localStorage` so you never lose a derivation.
-- **Copy & Export**: Quick-action buttons to copy raw code or clear the workspace.
+- **Copy & Export**: Quick-action buttons to copy raw code or nuclear-wipe the workspace.
 
-## Tech Stack
-- **Framework**: [React 19](https://react.dev/)
-- **Build Engine**: [Vite 8](https://vitejs.dev/) (Next-gen bundling)
-- **Styling**: Vanilla Modern CSS (Glassmorphism / Neon design system)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **CI/CD**: GitHub Actions with automated deployment to GitHub Pages.
-
-## Getting Started
+## 🚀 Getting Started
 
 ### Local Development
 ```bash
@@ -32,20 +30,28 @@ npm install
 npm run dev
 ```
 
-### Building for Production
+### 🧪 Quality Assurance
+Maintain 100% test coverage with Vitest + Happy-Dom.
 ```bash
-# Build & Lint
-npm run build
+# Run unit tests
+npm run test
 
-# Preview build
-npm run preview
+# Run tests with coverage report
+npx vitest run --coverage
 ```
 
-## Infrastructure & CI/CD
-The project uses GitHub Actions for automated quality control:
-- **Linting**: Strict ESLint flat-config enforcement.
-- **Type Checking**: TypeScript 5.9 strict mode.
-- **Automated Deployment**: Every push to `main` is automatically built and deployed to [GitHub Pages](https://daryawritescode.github.io/latex-preview/).
+## 📦 GitHub Project Optimization
 
-## License
-MIT License. Feel free to fork and build your own genius.
+### Recommended Tags (Topics)
+Apply these tags to your GitHub repository for maximum discoverability:
+`latex`, `markdown`, `katex`, `react`, `vite`, `math-preview`, `zen-mode`, `modern-ui`, `dark-mode`, `framer-motion`, `research-tool`.
+
+### Name & Description Tips
+- **Name**: `LaTeX Preview` (Simple, searchable) or `Zavtra LaTeX` (Brand-focused).
+- **Description**: "A minimalist, high-fidelity real-time previewer for Markdown and LaTeX. High-performance rendering for researchers and engineers."
+
+## 📜 License
+Distributable under the **MIT License**. Build your own genius.
+
+---
+*Created with focus by [Darya](https://github.com/daryawritescode).*
