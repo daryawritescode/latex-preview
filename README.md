@@ -7,8 +7,6 @@
 
 **A minimalist, high-fidelity real-time previewer for Markdown and $\\LaTeX$.** Built for researchers, engineers, and mathematicians who value zero-latency feedback and a high-end "modern-as-fuck" aesthetic.
 
-![LaTeX Preview Header](https://raw.githubusercontent.com/daryawritescode/latex-preview/main/src/assets/hero.png)
-
 ## ✨ Core Features
 - **Zero Latency Rendering**: Powered by [KaTeX](https://katex.org/) and `react-markdown`.
 - **Modern UI**: Dark-mode first design with glassmorphic interfaces and buttery smooth animations via `framer-motion`.
@@ -41,18 +39,5 @@ npm run test
 npx vitest run --coverage
 ```
 
-## 📦 GitHub Project Optimization
-
-### Recommended Tags (Topics)
-Apply these tags to your GitHub repository for maximum discoverability:
-`latex`, `markdown`, `katex`, `react`, `vite`, `math-preview`, `zen-mode`, `modern-ui`, `dark-mode`, `framer-motion`, `research-tool`.
-
-### Name & Description Tips
-- **Name**: `LaTeX Preview` (Simple, searchable) or `Zavtra LaTeX` (Brand-focused).
-- **Description**: "A minimalist, high-fidelity real-time previewer for Markdown and LaTeX. High-performance rendering for researchers and engineers."
-
 ## 📜 License
 Distributable under the **MIT License**. Build your own genius.
-
----
-*Created with focus by [Darya](https://github.com/daryawritescode).*
